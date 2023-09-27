@@ -1,0 +1,21 @@
+---
+import Layout from '../../../../layouts/LayoutAdmin.astro';
+import App from './App.svelte';
+//import CrudCreate from '../CrudCreate';
+const { id } = Astro.params;
+console.log("id=", id);
+---
+
+<Layout title="Welcome to Astro.">
+    <main class="container mb-4">
+         <App client:only="svelte" siteId={id}  />
+    </main>
+</Layout>
+<!-- -->
+<style>
+</style>
+
+<!--
+        <a class="btn btn-outline-primary" href={`/todo`}>Back</a>
+        <hr />
+ -->

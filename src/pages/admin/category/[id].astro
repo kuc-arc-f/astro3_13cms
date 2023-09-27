@@ -1,0 +1,29 @@
+---
+import Layout from '../../../layouts/LayoutAdmin.astro';
+import LibCrud from '../../../lib/LibCrud';
+import LibCommon from "../../../lib/LibCommon";
+import App from './App.svelte';
+//
+const { id } = Astro.params;
+console.log("id=", id);
+//let item: any = await LibCrud.get(Number(id));
+//console.log(item);
+//const createdAt = LibCommon.converDateString(item.createdAt);
+
+---
+
+<!-- -->
+<style>
+</style>
+
+<!-- MarkUp -->
+<Layout title="Welcome to Astro.">
+    <main class="container">
+        <App client:only="svelte" siteId={id} />
+    </main>
+</Layout>
+<!-- -->
+
+<!--
+<script src="./CrudShow.ts"></script>
+ -->

@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/LayoutBasic.astro';
+import Card from '../components/Card.astro';
+import HttpCommon from '../lib/HttpCommon';
+import LibCommon from "../lib/LibCommon";
+import CrudShow from "./admin/sites/CrudShow";
+import TopHeadBox from './TopHeadBox.svelte';
+import IndexRow from './IndexRow.svelte';
+const PUBLIC_SITE_ID = import.meta.env.PUBLIC_SITE_ID;
+const PUBLIC_SYSTEM_NAME = import.meta.env.PUBLIC_SYSTEM_NAME;
+console.log("sid=" ,PUBLIC_SITE_ID)
+//
+const postItem = {
+	siteId: Number(PUBLIC_SITE_ID),
+}		
+//console.log(postItem); 
+const json = await HttpCommon.post(postItem, "/posts/get_list");
+const items = json.data;  
+//site
+const siteItem = {
+	id: Number(PUBLIC_SITE_ID),
+}
+const jsonSites = await HttpCommon.post(siteItem, '/sites/get');
+const site = jsonSites.data;
+//console.log(site);
+
+---
+
+<Layout title={PUBLIC_SYSTEM_NAME}>
+    <TopHeadBox site_name={site.name} info_text={""} />
+    <div class="container mt-2 mb-4">
+    {
+    items.map((item) => (
+        <IndexRow id={item.id}  title={item.title} 
+        date={LibCommon.converDateString(item.createdAt)} category={item.CategoryName}  />
+    ))
+    }
+    </div>
+</Layout>
+
+<style>	
+</style>
+
+<!--
+<div>
+        <h1>{site.name}</h1>
+</div>
+-->

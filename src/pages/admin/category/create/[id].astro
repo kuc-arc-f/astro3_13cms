@@ -1,0 +1,18 @@
+---
+import Layout from '../../../../layouts/LayoutAdmin.astro';
+import App from './App.svelte';
+const { id } = Astro.params;
+console.log("id=", id);
+---
+
+<Layout title="Welcome to Astro.">
+    <App client:only="svelte" siteId={id} />
+</Layout>
+<!-- -->
+<style>
+.completed_box_wrap{ display: none; }
+</style>
+<!-- -->
+
+<!--
+ -->

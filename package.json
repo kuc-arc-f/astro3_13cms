@@ -1,0 +1,26 @@
+{
+  "name": "astro3_13cms",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^7.2.0",
+    "@astrojs/mdx": "^1.1.0",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/svelte": "^4.0.2",
+    "@astrojs/tailwind": "^5.0.0",
+    "astro": "^3.1.2",
+    "marked": "^9.0.3",
+    "moment": "^2.29.4",
+    "svelte": "^4.2.1",
+    "tailwindcss": "^3.3.3",
+    "wrangler": "^3.9.0"
+  }
+}

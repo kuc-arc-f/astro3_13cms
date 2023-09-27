@@ -1,0 +1,14 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import App from './App.svelte';
+import Auth from '../../../lib/server/Auth';
+//
+const valid = await Auth.sessionValidate(Astro);
+if(!valid) { return Astro.redirect('/login'); }
+---
+
+<Layout title="Welcome to Astro.">
+    <main class="container">
+        <App client:only="svelte" />
+    </main>
+</Layout>

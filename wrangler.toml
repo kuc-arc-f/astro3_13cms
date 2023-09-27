@@ -1,0 +1,5 @@
+name = "astro3_13"
+main = "./dist/_worker.js"
+compatibility_date = "2023-09-01"
+
+

@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/LayoutBasic.astro';
+import LibCrud from '../../lib/LibCrud';
+import LibCommon from "../../lib/LibCommon";
+import HttpCommon from '../../lib/HttpCommon';
+import { marked } from 'marked';
+//
+const { id } = Astro.params;
+console.log("id=", id);
+//let item: any = await LibCrud.get(Number(id));
+//console.log(item);
+let postItem: any = {
+    "id": id
+}; 
+const json = await HttpCommon.post(postItem, "/posts/get");
+//console.log(json.data);
+const item = json.data;
+const createdAt = LibCommon.converDateString(item.createdAt);
+console.log(createdAt);
+let content = item.content;
+//content = marked.parse(content);
+console.log(item);
+---
+
+<!-- MarkUp -->
+<Layout title="Welcome to Astro.">
+    <div class="container mb-4 post_show_wrap">
+        <hr class="my-1" />
+        <h1>{item.title}</h1>
+        <p>{createdAt}, ID: {item.id}</p>
+        <p>Category: {item.CategoryName}</p>
+        <hr />
+        <div id="post_item"></div>	
+    </div>
+    <input type="hidden" value={item.content} id="item_content" />
+</Layout>
+<!-- -->
+<script src="./CrudShow.ts"></script>
+
+<!-- -->
+<style>
+.post_show_wrap {margin-top: 50px; }
+</style>
+
+<!--
+<hr class="my-1" />
+ -->

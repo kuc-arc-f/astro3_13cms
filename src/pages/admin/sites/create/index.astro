@@ -1,0 +1,17 @@
+---
+import Layout from '../../../../layouts/LayoutAdmin.astro';
+import App from './App.svelte';
+
+---
+
+<Layout title="Welcome to Astro.">
+    <App client:only="svelte" />
+</Layout>
+<!-- -->
+<style>
+.completed_box_wrap{ display: none; }
+</style>
+<!-- -->
+
+<!--
+ -->

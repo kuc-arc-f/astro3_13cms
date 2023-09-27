@@ -1,0 +1,21 @@
+---
+import Layout from '../../../layouts/LayoutAdmin.astro';
+import type { Post } from '../index.astro';
+import Edit from './Edit.svelte';
+//
+---
+<!-- -->
+<style>
+</style>
+
+<!-- MarkUp -->
+<Layout title="Welcome to Astro.">
+    <div class="container">
+        <Edit client:only="svelte"  />
+    </div>
+</Layout>
+
+<!--
+<button id="btn_save" class="btn btn-primary">Save</button>
+<hr />
+ -->
